@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+            args '-u root' // para evitar problemas de permisos
+        }
+    }
 
     parameters {
         credentials(name: 'DOCKER_CREDENTIALS', description: 'Docker Hub credentials')
