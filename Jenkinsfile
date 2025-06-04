@@ -30,7 +30,20 @@ pipeline {
             }
         }
 
-        stage('Instalar Dependencias') {
+        stage('Build Angular APP') {
+            agent {
+                docker {
+                    image 'node:18'
+                    args '-u root'
+                }
+            }
+            steps {
+                sh 'npm install'
+                sh 'npm run build --configuration=production'
+            }
+        }
+
+        /*stage('Instalar Dependencias') {
             steps {
                 sh 'npm install'
             }
@@ -40,7 +53,7 @@ pipeline {
             steps {
                 sh 'npm run build --configuration=production'
             }
-        }
+        }*/
 
         stage('Build Docker Image') {
             steps {
