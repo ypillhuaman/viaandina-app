@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:18'
-            args '-u root' // para evitar problemas de permisos
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock' // Montar Docker socket y usuario root para evitar problemas de permisos
         }
     }
 
