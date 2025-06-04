@@ -38,18 +38,6 @@ pipeline {
             }
         }
 
-        /*stage('Instalar Dependencias') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Build Angular App') {
-            steps {
-                sh 'npm run build --configuration=production'
-            }
-        }*/
-
         stage('Build Docker Image') {
             steps {
                 script {
