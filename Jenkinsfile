@@ -55,7 +55,7 @@ pipeline {
                     sh """
                         cd ${DOCKER_COMPOSE_PATH}
                         APP_ENV=${params.ENVIRONMENT} docker compose pull ${SERVICE_NAME}
-                        APP_ENV=${params.ENVIRONMENT} docker compose up -d ${SERVICE_NAME}
+                        APP_ENV=${params.ENVIRONMENT} docker compose up -d --force-recreate --no-deps ${SERVICE_NAME}
                     """
                 }
             }
