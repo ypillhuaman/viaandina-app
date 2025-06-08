@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 export class MiService {
 
-  private apiUrl: string = 'http://localhost:8090/api/';
+  private apiUrl: string = 'http://viaandina/api/';
   private service: string = 'scheduler'
 
   constructor(private http: HttpClient) { }
